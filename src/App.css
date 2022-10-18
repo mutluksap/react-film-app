@@ -1,38 +1,176 @@
-.App {
+.container {
+  width: 1080px;
+  margin: 0 auto;
+}
+header {
+  color: white;
+}
+header .container {
+  padding: 1rem 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header .container .logo img {
+  width: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header .container nav {
+  margin-top: .5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header .container nav ul {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+header .container nav ul li a {
+  display: inline-flex;
+  flex-direction: column;
   color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  padding: .5rem;
+  transition: 300ms color;
 }
 
-.App-link {
-  color: #61dafb;
+header .container nav ul li a:hover {
+  color: #e02121;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+header .container nav ul li a svg {
+  margin-bottom: .25rem;
+}
+
+main .container ul.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+main .container ul.tags li span{
+  display: inline-block;
+  background-color: #fff;
+  padding: .25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: .5rem;
+  font-weight: 600;
+  transition: 300ms all;
+}
+
+main .container ul.tags li span:hover {
+  background-color: #e02121;
+  color: #fff;
+}
+
+main .container .film-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+main .container .film-list .film-cover {
+  border-radius: .25rem;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+main .container .film-list .film-cover .film {
+  position: relative;
+}
+
+main .container .film-list .film-cover .film img {
+  width: 250px;
+  display: block;
+}
+
+main .container .film-list .film-cover .film .film-detail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  color: #fff;
+  transition: 300ms all;
+}
+main .container .film-list .film-cover .film:hover .film-detail {
+  opacity: 1;
+  visibility: visible;
+}
+
+main .container .film-list .film-cover .film .film-detail {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+main .container .film-list .film-cover .film .film-detail .play-icon {
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+
+main .container .film-list .film-cover .film .film-detail .film-raiting {
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+}
+
+main .container .film-list .film-cover .film .film-detail .film-raiting .rate {
+  background-color: #e02121;
+  padding: .5rem;
+  border-radius: .25rem;
+  margin-right: .5rem;
+}
+
+main .container .film-list .film-cover .film .film-detail .film-raiting .progress {
+  flex: 1;
+}
+
+main .container .film-list .film-cover .film .film-detail .film-raiting .progress > span {
+  text-align: center;
+  display: block;
+  margin-bottom: .25rem;
+}
+
+main .container .film-list .film-cover .film .film-detail .film-raiting .progress .progress-bar {
+  display: block;
+  background-color: rgba(0, 0, 0, .8);
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+main .container .film-list .film-cover .film .film-detail .film-raiting .progress .progress-bar .progress-width {
+  display: block;
+  height: 4px;
+  background-color: red;
+}
+
+footer .container {
+  display: flex;
+  justify-content: center;
+}
+
+.mantine-psquq9[data-dots] {
+  background-color: #fff;
+}
+
+.mantine-Modal-inner {
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width:768px) {
+  .container {
+    width: 100%;
   }
 }
