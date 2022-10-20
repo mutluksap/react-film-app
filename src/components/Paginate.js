@@ -1,8 +1,7 @@
+import {useState} from "react";
 import { Pagination } from '@mantine/core';
-import { useState } from 'react';
 
-function Demo() {
-  const [activePage, setPage] = useState(1);
+function Paginate({activePage, setPage}) {
   
   return (
     <footer>
@@ -13,4 +12,4 @@ function Demo() {
   );
 }
 
-export default Demo;
+export default Paginate;

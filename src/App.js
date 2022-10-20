@@ -1,45 +1,30 @@
 import './App.css';
 import React, {useState} from 'react';
 import Paginate from './components/Paginate';
-import FilmList from './components/FilmList';
 import Header from './components/Header';
-
+// import Tags from './components/Tags';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Trending from './pages/Trending';
+import Movies from './pages/Movies';
+import Series from './pages/Series';
 
 function App() {
-
-
+  const [activePage, setPage] = useState(1);
   return (
-    <>
+    <BrowserRouter>
       <Header/>
       <main>
         <div className='container'>
-          <ul className='tags'>
-            <li>
-              <span className='tag' href='#'>
-                Comedy  
-              </span>
-            </li>
-            <li>
-              <span className='tag' href='#'>
-                Drama  
-              </span>
-            </li>
-            <li>
-              <span className='tag' href='#'>
-                Sopa  
-              </span>
-            </li>
-            <li>
-              <span className='tag' href='#'>
-                Talk  
-              </span>
-            </li>
-          </ul>
-          <FilmList/>
+          {/* <Tags/> */}
+          <Routes>
+            <Route path="/" element={<Trending activePage={activePage} />} />
+            <Route path="/movies" element={<Movies activePage={activePage}/>} />
+            <Route path="series" element={<Series activePage={activePage}/>} />
+          </Routes>
         </div>
       </main>
-      <Paginate/>
-    </>
+      <Paginate activePage={activePage} setPage={setPage}/>
+    </BrowserRouter>
   );
 }
 

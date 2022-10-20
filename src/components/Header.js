@@ -2,6 +2,7 @@ import React from 'react'
 import Logo from "../favicon.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faFire, faVideo, faTv, faMagnifyingGlass, faPlayCircle} from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -10,28 +11,29 @@ function Header() {
           <div className='logo'>
             <img alt='s' src={Logo}/>
           </div>
+                    
           <nav>
             <ul>
               <li>
-                <a href='#'>
-                  <FontAwesomeIcon icon={faFire}></FontAwesomeIcon>
-                  Trending
-                </a>
+                 <Link as="a" to='/'>
+                    <FontAwesomeIcon icon={faFire}></FontAwesomeIcon>
+                    Trending
+                  </Link>
               </li>
               <li>
-                <a href='#'>
+                <Link as="a" to='/movies'>
                 <FontAwesomeIcon icon={faVideo}></FontAwesomeIcon>
                   Movies
-                </a>
+                  </Link>
               </li>
               <li>
-                <a href='#'>
+              <Link as="a" to='/series'>
                 <FontAwesomeIcon icon={faTv}></FontAwesomeIcon>
                   Tv Series
-                </a>
+                  </Link>
               </li>
               <li>
-                <a href='#'>
+                <a href='/search'>
                 <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
                   Search
                 </a>
