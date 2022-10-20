@@ -68,7 +68,7 @@ main .container ul.tags li span:hover {
 main .container .film-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 2rem;
 }
 
@@ -158,6 +158,10 @@ main .container .film-list .film-cover .film .film-detail .film-raiting .progres
 footer .container {
   display: flex;
   justify-content: center;
+}
+
+footer .container .mantine-Group-root {
+  margin-bottom: 15px;
 }
 
 .mantine-psquq9[data-dots] {

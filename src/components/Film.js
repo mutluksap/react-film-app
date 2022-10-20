@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Modal, Group } from '@mantine/core';
+import { Modal, Group, useMantineTheme  } from '@mantine/core';
 import axios from 'axios';
 
 function Film(film) {
   const [opened, setOpened] = useState(false);
-
+  const theme = useMantineTheme();
  
 
   if(film.film && film.film.backdrop_path !== null)
@@ -14,6 +14,10 @@ function Film(film) {
         opened={opened}
         onClose={() => setOpened(false)}
         title={film.film.name ? film.film.name : film.film.original_title}
+        overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[8]}
+        overlayOpacity={0.2}
+        overlayBlur={3}
+        size="255%"
       >
         {/* Modal content */}
       </Modal>
