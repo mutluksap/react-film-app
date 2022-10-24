@@ -1,14 +1,30 @@
 import { useState } from 'react';
+import { Modal, Group, useMantineTheme  } from '@mantine/core';
 import axios from 'axios';
-import Modal from "./Modal";
 
-function Film(film, mediaType) {
-  const [modal, setModal] = useState(false);
+function Film(film) {
+  const [opened, setOpened] = useState(false);
+  const theme = useMantineTheme();
+ 
+
   if(film.film && film.film.backdrop_path !== null)
   return (
     <>
+      <Modal
+        opened={opened}
+        onClose={() => setOpened(false)}
+        title={film.film.name ? film.film.name : film.film.original_title}
+        overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[8]}
+        overlayOpacity={0.2}
+        overlayBlur={3}
+        size="255%"
+      >
+        {/* Modal content */}
+      </Modal>
+
+      <Group position="center">
       <div className='film-cover'>
-          <div className='film' onClick={() => setModal(true)}>
+          <div className='film' onClick={() => setOpened(true)}>
             <img src={'https://image.tmdb.org/t/p/w300' + film.film.poster_path}/>
             <div className='film-detail'>
             <div className='play-icon'>
@@ -26,8 +42,7 @@ function Film(film, mediaType) {
             </div>
           </div>
           </div>
-          <Modal closeFunction={(value) => setModal(value)} film={film} modal={modal} mediaType={mediaType}/>
-          
+      </Group>
     </>
   );
 }

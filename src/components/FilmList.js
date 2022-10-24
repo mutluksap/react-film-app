@@ -1,11 +1,11 @@
 import React from 'react'
 import Film from './Film';
 
-function FilmList(films) {
+function FilmList(films, mediaType) {
   return (
     <div className='film-list'>
         {
-            films.films.map((film, index) => (<Film key={index} film={film} />))
+            films.films.map((film, index) => (<Film mediaType={mediaType} key={index} film={film} />))
         }
         <Film/>
     </div> 
