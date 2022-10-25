@@ -172,6 +172,11 @@ footer .container .mantine-Group-root {
   display: grid;
   place-items: center;
 }
+
+.overlay {
+  position: relative;
+}
+
 .modal {
   position: fixed;
   top: 0;
@@ -183,32 +188,36 @@ footer .container .mantine-Group-root {
   display: grid;
   place-items: center;
   overflow:auto;
+  z-index: 5555;
 }
 
-.modal .content {
+.content {
+  position: fixed;
   width: 750px;
   background-color: rgba(0, 0, 0, .8);
   border-radius: 0.25rem;
   overflow:auto;
+  z-index: 9999;
+  transform: translate(0px, -150px);
 }
-.modal .content .cover {
+.content .cover {
   position: relative;
 }
 
-.modal .content .cover img {
+.content .cover img {
   display: block;
   width: 100%;
 }
-.modal .content h2 {
+.content h2 {
   padding: .5rem 0;
 }
 
-.modal .content h2 {
+.content h2 {
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
 }
 
-.modal .content .detail {
+.content .detail {
   padding: 0 1rem;
   color: rgba(255, 255, 255, 0.9)
 }
@@ -257,6 +266,16 @@ footer .container .mantine-Group-root {
   font-weight: 600;
   background-color: rgba(0, 0, 0, .7);
   padding: .25rem 0;
+}
+
+.swiper-pagination {
+  bottom: 0px !important;
+}
+.swiper-pagination-bullet {
+  background-color: gray;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #e02121 !important;
 }
 @media (max-width:768px) {
   .container {

@@ -24,8 +24,9 @@ function Modal({film, modal, mediaType, closeFunction}) {
     
   return <>
   {
-        modal ? <div className='modal'>
-        <div className='content'>
+        modal ? <>
+            <div className='modal' onClick={() => closeFunction()} />
+            <div className='content'>
             {trailer.length ? <div className='cover' onClick={() => closeFunction(true)} >
             <iframe width="100%" height="400" src={`https://www.youtube.com/embed/${trailer}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"/>
             </div> : <></>}
@@ -51,7 +52,7 @@ function Modal({film, modal, mediaType, closeFunction}) {
                             (
                                 artist.profile_path !== null ? <SwiperSlide key={index}>
                                 <img src={`https://image.tmdb.org/t/p/w300${artist.profile_path}`} />
-                                <div className='cast-name'>{artist.original_name} <br/> ({artist.character})</div>
+                                <div className='cast-name'>{artist.original_name} <br/> {artist.character ? `(${artist.character})` : `(Unkown)`}</div>
                             </SwiperSlide> : ''
                             )
                             )
@@ -60,8 +61,9 @@ function Modal({film, modal, mediaType, closeFunction}) {
                     </Swiper>
                 </div>
             </div>
-        </div>
-    </div> : <></>
+            </div>
+            </>
+         : <></>
     }
   </>
     

@@ -26,7 +26,7 @@ function Film(film, mediaType) {
             </div>
           </div>
           </div>
-          <Modal closeFunction={(value) => setModal(value)} film={film} modal={modal} mediaType={mediaType}/>
+          <Modal closeFunction={() => setModal(false)} film={film} modal={modal} mediaType={mediaType}/>
           
     </>
   );
