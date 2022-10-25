@@ -1,12 +1,11 @@
-import {useState} from "react";
 import { Pagination } from '@mantine/core';
 
-function Paginate({activePage, setPage}) {
+function Paginate({activePage, setPage, totalPage}) {
   
   return (
     <footer>
       <div className='container'>
-         <Pagination page={activePage} total={10} onChange={setPage} color="red" size="lg" radius="md" />
+         <Pagination page={activePage} total={totalPage} color="red" onChange={setPage} size="xl" radius="md" />
       </div>
     </footer>
   );

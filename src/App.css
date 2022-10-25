@@ -272,7 +272,7 @@ footer .container .mantine-Group-root {
   bottom: 0px !important;
 }
 .swiper-pagination-bullet {
-  background-color: gray;
+  background-color: #fff !important;
 }
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #e02121 !important;

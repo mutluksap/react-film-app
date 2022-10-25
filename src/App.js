@@ -11,6 +11,7 @@ import Tags from "./components/Tags";
 
 function App() {
   const [activePage, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(0);
   return (
     <BrowserRouter>
       <Header/>
@@ -18,13 +19,13 @@ function App() {
       <main>
         <div className='container'>
           <Routes>
-            <Route path="/" element={<Trending activePage={activePage} />} />
-            <Route path="/movies" element={<Movies activePage={activePage}/>} />
-            <Route path="series" element={<Series activePage={activePage}/>} />
+            <Route path="/" element={<Trending setTotalPage={setTotalPage} activePage={activePage} />} />
+            <Route path="/movies" element={<Movies setTotalPage={setTotalPage} activePage={activePage}/>} />
+            <Route path="series" element={<Series setTotalPage={setTotalPage} activePage={activePage}/>} />
           </Routes>
         </div>
       </main>
-      <Paginate activePage={activePage} setPage={setPage}/>
+      <Paginate totalPage={totalPage} activePage={activePage} setPage={setPage}/>
     </BrowserRouter>
   );
 }
