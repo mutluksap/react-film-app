@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import axios from "axios";
 import Tag from "./Tag";
 
-function Tags({genres,setGenres, filterTag}) {
+function Tags({genres,setGenres, filterTag, selectedTagList}) {
 
 
     useEffect(() => {
@@ -15,7 +15,12 @@ function Tags({genres,setGenres, filterTag}) {
     <>
         <ul className="tags">
             
-            {genres.map((genre, index) => (<Tag filterTag={filterTag} genre={genre} key={index}/>))}
+            {genres.map((genre, index) => {
+              const tagIsSelected = selectedTagList?.find(selectedTag => {
+                return selectedTag.id === genre.id
+              })
+              return <Tag filterTag={filterTag} genre={genre} key={index} isSelected={tagIsSelected}/>
+            })}
             
         </ul>
     </>

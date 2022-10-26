@@ -49,6 +49,11 @@ main .container ul.tags {
   justify-content: center;
 }
 
+main .container ul.tags span.active_tag {
+  background-color: #e02121;
+  color: #fff;
+}
+
 main .container ul.tags li span{
   display: inline-block;
   background-color: #fff;

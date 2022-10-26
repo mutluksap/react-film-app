@@ -10,26 +10,27 @@ function Movies({activePage, setTotalPage}) {
     const [selectedTags, setSelectedTags] = useState([]);
 
     const filterTag = (tag) => {
-      let hasTag = selectedTags.find(tags => tags === tag.id) 
+      let hasTag = selectedTags.find(tags => tags.id === tag.id) 
       if(hasTag){
-        console.log(hasTag);
-        console.log(selectedTags.indexOf(hasTag));
+       // https://api.themoviedb.org/3/discover/movie?api_key=3ae68406806beaa82862f2c74b530477&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=12,878
+        setSelectedTags(selectedTags.filter(item => item.id !== tag.id))
       }else {
         setSelectedTags([...selectedTags, tag])
       }
-      console.log(selectedTags)
     };
 
     useEffect(() => {
-        axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&page=${activePage}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true`).then(response => {
+      const fetchLink = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&page=${activePage}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true`
+      
+      axios.get(selectedTags.length ? fetchLink + `&with_genres=${selectedTags.map(tag => tag.id).join(',')}`: fetchLink).then(response => {
             setFilms(response.data.results);
             setTotalPage(response.data.total_pages);
         })
-    }, [activePage])
+    }, [activePage, selectedTags])
   return (
     films.length !== 0 ? 
     
-    <><Tags filterTag={filterTag}  genres={genres} setGenres={setGenres}/>
+    <><Tags filterTag={filterTag} selectedTagList={selectedTags} genres={genres} setGenres={setGenres}/>
         <FilmList genres={genres} mediaType={mediaType} films={films}/></> : <></>
   )
 }
