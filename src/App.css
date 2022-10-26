@@ -69,7 +69,7 @@ main .container .film-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 main .container .film-list .film-cover {
@@ -281,6 +281,36 @@ footer .container .mantine-Group-root {
 button[data-dots="true"] {
   background-color: white !important;
   border: 1px solid #ced4da !important;
+}
+
+.tags {
+  display: flex;
+}
+.tags li {
+  margin-bottom: .5rem;
+}
+
+.film-tags {
+  padding: 1rem;
+  display: flex;
+  color: #fff;
+  align-items: center;
+}
+
+.film-tags span {
+font-weight: 600;
+}
+
+.film-tags ul {
+  display: flex;
+}
+
+.film-tags ul li {
+  background-color: #e02121;
+  padding: .25rem;
+  font-weight: 600;
+  border-radius: 4px;
+  margin: 0 .25rem;
 }
 
 @media (max-width:768px) {

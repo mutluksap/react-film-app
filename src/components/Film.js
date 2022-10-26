@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Modal from "./Modal";
 
-function Film({film, mediaType}) {
+function Film({film, mediaType, genres}) {
   const [modal, setModal] = useState(false);
   if(film && film.backdrop_path !== null)
   return (
@@ -25,7 +25,7 @@ function Film({film, mediaType}) {
             </div>
           </div>
           </div>
-          <Modal closeFunction={() => setModal(false)} film={film} modal={modal} mediaType={mediaType}/>
+          <Modal genres={genres} closeFunction={() => setModal(false)} film={film} modal={modal} mediaType={mediaType}/>
           
     </>
   );

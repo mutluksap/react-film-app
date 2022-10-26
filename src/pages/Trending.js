@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import FilmList from '../components/FilmList';
 
-function Trending({activePage, setTotalPage}) {
+function Trending({activePage, setTotalPage, genres}) {
     const [films, setFilms]  = useState([]);
     const [mediaType, setMediaType] = useState("");
     
@@ -15,7 +15,7 @@ function Trending({activePage, setTotalPage}) {
 
   return (
     films.length !== 0 ? 
-        <FilmList films={films} mediaType={mediaType}/>
+        <FilmList genres={genres} films={films} mediaType={mediaType}/>
         : <></>
   )
 }

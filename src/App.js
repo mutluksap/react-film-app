@@ -7,7 +7,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Trending from './pages/Trending';
 import Movies from './pages/Movies';
 import Series from './pages/Series';
-import Tags from "./components/Tags";
 
 function App() {
   const [activePage, setPage] = useState(1);
@@ -15,7 +14,6 @@ function App() {
   return (
     <BrowserRouter>
       <Header/>
-      {/* <Tags/> */}
       <main>
         <div className='container'>
           <Routes>

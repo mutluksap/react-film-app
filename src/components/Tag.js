@@ -1,8 +1,12 @@
 import React from 'react'
 
-function Tag(genre) {
+function Tag({genre, filterTag}) {
   return (
-    <span>{genre}</span>
+    <li onClick={() => filterTag(genre)} >
+      <span>
+    {genre.name}
+    </span>
+    </li>
   )
 }
 

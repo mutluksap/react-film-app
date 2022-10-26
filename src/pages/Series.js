@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import FilmList from '../components/FilmList';
 
-function Series({activePage, setTotalPage}) {
+function Series({activePage, setTotalPage, genres}) {
     const [films, setFilms]  = useState([]);
     const [mediaType, setMediaType] = useState("tv");
     useEffect(() => {
@@ -14,7 +14,7 @@ function Series({activePage, setTotalPage}) {
     }, [activePage])
   return (
     films.length !== 0 ? 
-    <FilmList films={films} mediaType={mediaType}/>
+    <FilmList genres={genres} films={films} mediaType={mediaType}/>
     : <></>
   )
 }
