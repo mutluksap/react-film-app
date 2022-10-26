@@ -16,7 +16,7 @@ function Film({film, mediaType}) {
             <div className='film-raiting'>
               <div className='rate'>{film !== undefined ? film.vote_average: 0 }</div>
               <div className='progress'>
-                <span>{film !== undefined ? film.vote_count: 0} kişi değerlendirdi</span>
+                <span>{film !== undefined ? film.vote_count: 0} people voted</span>
                 <span className='progress-bar'>
                   <span style={{width : `${(film.vote_average * 10)}%`}} className='progress-width'></span>   
                 </span>

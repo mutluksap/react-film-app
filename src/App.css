@@ -277,6 +277,12 @@ footer .container .mantine-Group-root {
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #e02121 !important;
 }
+
+button[data-dots="true"] {
+  background-color: white !important;
+  border: 1px solid #ced4da !important;
+}
+
 @media (max-width:768px) {
   .container {
     width: 100%;
